@@ -83,7 +83,7 @@ menu, the error is re-signalled."
          (let ((win (window-parent window)))
            (setf x (1- (+ (xlib:drawable-x win) (xlib:drawable-width win)))
                  y (1- (+ (xlib:drawable-y win) (xlib:drawable-height win))))))))
-    (warp-pointer (group-screen group) x y)))
+    (warp-pointer (group-screen group) (floor x 2) y)))
 
 (defcommand banish (&optional where) (:rest)
   "Warp the mouse the lower right corner of the current head."
